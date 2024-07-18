@@ -1,5 +1,6 @@
 <p> paramValue : {{ paramValue | json }}</p>
 <p> parseResult : {{ parseResult | json }}</p>
+<p> remainingSeconds : {{ remainingMilliseconds }}</p>
 
 
 <div class="bg-background rounded-lg border p-8 w-full max-w-lg flex flex-col gap-6">
@@ -27,27 +28,27 @@
   </div>
   <div class="grid grid-cols-5 gap-6 text-center">
     <time-wizard-countdown-element
-      [time]="2"
+      [time]="remainingMilliseconds"
       format="yy"
       formatDisplayName="Years">
     </time-wizard-countdown-element>
     <time-wizard-countdown-element
-      [time]="5000"
+      [time]="remainingMilliseconds"
       format="dd"
       formatDisplayName="Days">
     </time-wizard-countdown-element>
     <time-wizard-countdown-element
-      [time]="5000"
+      [time]="remainingMilliseconds"
       format="HH"
       formatDisplayName="Hours">
     </time-wizard-countdown-element>
     <time-wizard-countdown-element
-      [time]="5000"
+      [time]="remainingMilliseconds"
       format="mm"
       formatDisplayName="Minutes">
     </time-wizard-countdown-element>
     <time-wizard-countdown-element
-      [time]="5000"
+      [time]="remainingMilliseconds"
       format="ss"
       formatDisplayName="Seconds">
     </time-wizard-countdown-element>

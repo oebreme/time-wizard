@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { DatePipe } from "@angular/common";
 
 @Component({
@@ -8,10 +8,9 @@ import { DatePipe } from "@angular/common";
     DatePipe,
   ],
   templateUrl: './countdown-element.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CountdownElementComponent {
-  @Input() time?: number;
+  @Input({ required: true}) time: number = 0;
   @Input() format?: string;
   @Input() formatDisplayName?: string;
 }
