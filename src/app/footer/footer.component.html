@@ -1,0 +1,10 @@
+<div class="fixed bottom-0 min-w-full text-xs text-gray-700 bg-base-100">
+  <div class="flex justify-end items-center space-x-8 p-0.5">
+    @if(debugEnabled) {
+    <a>parseResult {{ parseResult | date: 'medium' }}</a>
+    <a>remainingMilliseconds {{ remainingMilliseconds }}</a>
+    }
+    <a href="https://github.com/oebreme/time-wizard" target="_blank">GitHub</a>
+    <a>version-{{ version }}</a>
+  </div>
+</div>
