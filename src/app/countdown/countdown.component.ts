@@ -3,32 +3,32 @@ import {
   Input,
   OnInit,
 } from '@angular/core';
-import { JsonPipe } from "@angular/common";
+import { DatePipe } from "@angular/common";
 import dayjs from "dayjs";
 // @ts-ignore
 import advancedParser from "dayjs-parser";
 import { CountdownElementComponent } from "../countdown-element/countdown-element.component";
+import { FooterComponent } from "../footer/footer.component";
 import { interval, takeWhile } from "rxjs";
 
 @Component({
   selector: 'time-wizard-countdown',
   standalone: true,
   imports: [
-    JsonPipe,
     CountdownElementComponent,
+    DatePipe,
+    FooterComponent,
   ],
   templateUrl: './countdown.component.html',
 })
 export class CountdownComponent implements OnInit {
 
-  paramValue: any = 'day';
   parseResult: any = {};
   remainingMilliseconds: number = 0;
 
   @Input()
   set date(someDate: string) {
     this.parseResult = dayjs(someDate).subtract(2, 'hours');
-    this.paramValue = someDate;
   }
 
   constructor() {
@@ -41,11 +41,10 @@ export class CountdownComponent implements OnInit {
   }
 
   private calculateRemainingMilliseconds(): number {
-    const now: number = new Date().getTime();
-    const target: number = new Date(this.parseResult).getTime();
+    const now: number = Date.now();
+    const target: number = this.parseResult.valueOf();
 
-    const differenceInMs: number = this.calculateDifferenceWithFloorZero(target, now);
-    return differenceInMs;
+    return this.calculateDifferenceWithFloorZero(target, now);
   }
 
   private countdown(): void {
@@ -59,5 +58,25 @@ export class CountdownComponent implements OnInit {
 
   private calculateDifferenceWithFloorZero(a: number, b: number): number {
     return Math.max(0, a - b);
+  }
+
+  remainingYearsFromMilliseconds(milliseconds: number): number {
+    return Math.floor(milliseconds / (1000 * 60 * 60 * 24 * 365));
+  }
+
+  remainingDaysFromMilliseconds(milliseconds: number): number {
+    return Math.floor((milliseconds % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24));
+  }
+
+  remainingHoursFromMilliseconds(milliseconds: number): number {
+    return Math.floor((milliseconds % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  }
+
+  remainingMinutesFromMilliseconds(milliseconds: number): number {
+    return Math.floor((milliseconds % (1000 * 60 * 60)) / (1000 * 60));
+  }
+
+  remainingSecondsFromMilliseconds(milliseconds: number): number {
+    return Math.floor((milliseconds % (1000 * 60)) / 1000);
   }
 }

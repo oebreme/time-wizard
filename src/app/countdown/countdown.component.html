@@ -1,8 +1,3 @@
-<p> paramValue : {{ paramValue | json }}</p>
-<p> parseResult : {{ parseResult | json }}</p>
-<p> remainingSeconds : {{ remainingMilliseconds }}</p>
-
-
 <div class="bg-background rounded-lg border p-8 w-full max-w-lg flex flex-col gap-6">
   <div class="flex flex-row items-center justify-between">
     <div class="flex flex-row items-center">
@@ -28,30 +23,29 @@
   </div>
   <div class="grid grid-cols-5 gap-6 text-center">
     <time-wizard-countdown-element
-      [time]="remainingMilliseconds"
-      format="yy"
-      formatDisplayName="Years">
+      [time]="remainingYearsFromMilliseconds(remainingMilliseconds)"
+      displayName="Years">
     </time-wizard-countdown-element>
     <time-wizard-countdown-element
-      [time]="remainingMilliseconds"
-      format="dd"
-      formatDisplayName="Days">
+      [time]="remainingDaysFromMilliseconds(remainingMilliseconds)"
+      displayName="Days">
     </time-wizard-countdown-element>
     <time-wizard-countdown-element
-      [time]="remainingMilliseconds"
-      format="HH"
-      formatDisplayName="Hours">
+      [time]="remainingHoursFromMilliseconds(remainingMilliseconds)"
+      displayName="Hours">
     </time-wizard-countdown-element>
     <time-wizard-countdown-element
-      [time]="remainingMilliseconds"
-      format="mm"
-      formatDisplayName="Minutes">
+      [time]="remainingMinutesFromMilliseconds(remainingMilliseconds)"
+      displayName="Minutes">
     </time-wizard-countdown-element>
     <time-wizard-countdown-element
-      [time]="remainingMilliseconds"
-      format="ss"
-      formatDisplayName="Seconds">
+      [time]="remainingSecondsFromMilliseconds(remainingMilliseconds)"
+      displayName="Seconds">
     </time-wizard-countdown-element>
   </div>
 </div>
 
+<time-wizard-footer
+  [parseResult]="parseResult"
+  [remainingMilliseconds]="remainingMilliseconds"
+></time-wizard-footer>
