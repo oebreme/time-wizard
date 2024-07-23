@@ -23,12 +23,12 @@ import { interval, takeWhile } from "rxjs";
 })
 export class CountdownComponent implements OnInit {
 
-  parseResult: any = {};
+  parseDatetimeResult: any = {};
   remainingMilliseconds: number = 0;
 
   @Input()
-  set date(someDate: string) {
-    this.parseResult = dayjs(someDate).subtract(2, 'hours');
+  set dateTime(someDate: string) {
+    this.parseDatetimeResult = dayjs(someDate).subtract(2, 'hours');
   }
 
   constructor() {
@@ -42,7 +42,7 @@ export class CountdownComponent implements OnInit {
 
   private calculateRemainingMilliseconds(): number {
     const now: number = Date.now();
-    const target: number = this.parseResult.valueOf();
+    const target: number = this.parseDatetimeResult.valueOf();
 
     return this.calculateDifferenceWithFloorZero(target, now);
   }

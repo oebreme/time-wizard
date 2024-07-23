@@ -1,0 +1,20 @@
+<button class="btn btn-sm rounded-lg" onclick="howTo.showModal()">How to Use</button>
+
+<dialog id="howTo" class="modal absolute top-2 left-2">
+  <div class="modal-box max-w-3xl">
+    <h3 class="text-lg font-bold">How to Use</h3>
+    <p class="py-4"><strong>Use the url-paramater "?dateTime=" to set the countdown like so:</strong><br>
+      <span class="text-sm">"https://time-wizard.oebreme.dev/countdown?dateTime=24.07.2024"</span> <br>
+      <span class="font-bold">[this translates to] </span> <br>
+      <span class="text-sm">24th July 2024, 00:00 AM</span>
+    </p>
+    <p class="py-4"><strong>You can also define a specific time:</strong><br>
+      <span class="text-sm">"https://time-wizard.oebreme.dev/countdown?dateTime=24.07.2024 06:00"</span> <br>
+      <span class="font-bold">[this translates to] </span> <br>
+      <span class="text-sm">24th July 2024, 06:00 AM</span>
+    </p>
+  </div>
+  <form method="dialog" class="modal-backdrop ">
+    <button>close</button>
+  </form>
+</dialog>
