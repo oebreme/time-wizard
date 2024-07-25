@@ -52,7 +52,7 @@ export class CountdownComponent implements OnInit {
     interval(ONE_SECOND_AS_MS).pipe(
       takeWhile(() => this.remainingMilliseconds > ONE_SECOND_AS_MS)
         ).subscribe(() => {
-        this.remainingMilliseconds -= ONE_SECOND_AS_MS;
+        this.remainingMilliseconds = this.calculateRemainingMilliseconds();
     });
   }
 
