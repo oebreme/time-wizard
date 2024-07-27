@@ -1,8 +1,47 @@
 # TimeWizard
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.0.
+https://time-wizard.oebreme.dev/countdown
 
-![](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExbGt1ODRqNnAydzQ3dGE1eDBzenI2cjFqbzV1ajJpY2p0MTZhbzVtdSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/juq2OXONntuHfLc4Tn/giphy.webp)
+![](https://uploads4.yugioh.com/card_images/296/detail/Time-Wizard.jpg?1375128576)
+
+## How to use
+
+### Set the Time
+Use the url-paramater "?dateTime=" to set the countdown like so:<br>
+```https://time-wizard.oebreme.dev/countdown?dateTime=24.07.2024```<br>
+_this translates to_ <br>
+```24th July 2024, 00:00 AM```<br><br>
+
+
+### You can also define a specific time:<br>
+```https://time-wizard.oebreme.dev/countdown?dateTime=24.07.2024 06:00```<br>
+_this translates to_ <br>
+```24th July 2024, 06:00 AM```<br>
+## 
+
+### Custom Title
+You can also specify your own title:<br>
+```https://time-wizard.oebreme.dev/countdown?title=Pomodoro```<br>
+_this translates to_ <br>
+```Pomodoro```<br>
+
+## 
+
+### Additional description
+You can specify an additional description as well:<br>
+```https://time-wizard.oebreme.dev/countdown?description=Bavaria ipsum dolor sit amet```<br>
+_this translates to_ <br>
+```Bavaria ipsum dolor sit amet```<br>
+
+## 
+
+### Adding a picture or gif
+You can specify a image to be displayed:<br>
+```https://time-wizard.oebreme.dev/countdown?image=https://wallpapercave.com/wp/wp5408463.png```<br>
+_this translates to_ <br>
+![](https://wallpapercave.com/wp/wp5408463.png)<br>
+
+##
 
 ## Development server
 
