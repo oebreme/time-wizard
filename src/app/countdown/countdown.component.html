@@ -45,8 +45,17 @@
         displayName="Seconds">
       </time-wizard-countdown-element>
     </div>
+
+@if (countdownDescription !== undefined) {
+    <div class="bg-base-300 rounded-xl px-3 py-2">
+      <div class="text-base-content overflow-clip">
+        {{ countdownDescription }}
+      </div>
+    </div>
+}
   </div>
 </div>
+
 
 <time-wizard-footer
   [parseResult]="parseDatetimeResult"
