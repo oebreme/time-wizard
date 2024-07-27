@@ -25,10 +25,18 @@ export class CountdownComponent implements OnInit {
 
   parseDatetimeResult: any = {};
   remainingMilliseconds: number = 0;
+  countdownTitle: string = 'Countdown';
 
   @Input()
   set dateTime(someDate: string) {
     this.parseDatetimeResult = dayjs(someDate).subtract(2, 'hours');
+  }
+
+  @Input()
+  set title(someTitle: string) {
+    if (this.consistsOfAtLeastOneCharacter(someTitle)) {
+      this.countdownTitle = someTitle;
+    }
   }
 
   constructor() {
@@ -78,5 +86,9 @@ export class CountdownComponent implements OnInit {
 
   remainingSecondsFromMilliseconds(milliseconds: number): number {
     return Math.floor((milliseconds % (1000 * 60)) / 1000);
+  }
+
+  private consistsOfAtLeastOneCharacter(title: string): boolean {
+    return title.length > 0;
   }
 }
