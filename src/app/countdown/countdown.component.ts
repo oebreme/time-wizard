@@ -27,6 +27,7 @@ export class CountdownComponent implements OnInit {
   remainingMilliseconds: number = 0;
   countdownTitle: string = 'Countdown';
   countdownDescription?: string;
+  imageUrl?: string;
 
   @Input()
   set dateTime(someDate: string) {
@@ -44,6 +45,14 @@ export class CountdownComponent implements OnInit {
   set description(someDescription: string) {
     if (this.consistsOfAtLeastOneCharacter(someDescription)) {
       this.countdownDescription = someDescription;
+    }
+  }
+
+  @Input()
+  set image(someImageUrl: string) {
+    console.log(someImageUrl)
+    if (this.consistsOfAtLeastOneCharacter(someImageUrl)) {
+      this.imageUrl = someImageUrl;
     }
   }
 

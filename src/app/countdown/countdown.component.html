@@ -46,6 +46,13 @@
       </time-wizard-countdown-element>
     </div>
 
+@if (imageUrl !== undefined || true) {
+    <div class="rounded-xl px-0 py-0 flex justify-center">
+      <img class="overflow-clip rounded-xl max-h-[50dvh] object-scale-down"
+           [src]=imageUrl
+      />
+    </div>
+}
 @if (countdownDescription !== undefined) {
     <div class="bg-base-300 rounded-xl px-3 py-2">
       <div class="text-base-content overflow-clip">
